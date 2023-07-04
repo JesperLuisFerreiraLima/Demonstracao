@@ -1,0 +1,87 @@
+object frmConfUsuario: TfrmConfUsuario
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = 'Configura'#231#227'o de Usu'#225'rios'
+  ClientHeight = 256
+  ClientWidth = 327
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnActivate = FormActivate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object dbUsuario: TDBGrid
+    Left = 8
+    Top = 24
+    Width = 307
+    Height = 137
+    DataSource = Dm.dsLogin
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID_Usuario'
+        Title.Alignment = taCenter
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -13
+        Title.Font.Name = 'Tahoma'
+        Title.Font.Style = [fsBold]
+        Width = 41
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NM_Usuario'
+        Title.Alignment = taCenter
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -13
+        Title.Font.Name = 'Tahoma'
+        Title.Font.Style = [fsBold]
+        Width = 154
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'SE_Usuario'
+        Title.Alignment = taCenter
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -13
+        Title.Font.Name = 'Tahoma'
+        Title.Font.Style = [fsBold]
+        Width = 78
+        Visible = True
+      end>
+  end
+  object btnAtualizar: TJvXPButton
+    Left = 24
+    Top = 200
+    Width = 117
+    Height = 34
+    Caption = 'Atualizar'
+    TabOrder = 1
+    OnClick = btnAtualizarClick
+  end
+  object btnExcluir: TJvXPButton
+    Left = 180
+    Top = 200
+    Width = 117
+    Height = 34
+    Caption = 'Excluir'
+    TabOrder = 2
+    OnClick = btnExcluirClick
+  end
+end

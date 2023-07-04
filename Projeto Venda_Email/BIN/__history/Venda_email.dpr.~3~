@@ -1,0 +1,18 @@
+program Venda_email;
+
+uses
+  Vcl.Forms,
+  VendaEmail in 'VendaEmail.pas' {frmMain},
+  Usuario in 'Usuario.pas' {frmUsuario},
+  DMDados in 'DMDados.pas' {DataModule1: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmUsuario, frmUsuario);
+  Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.

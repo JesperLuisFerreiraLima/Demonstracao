@@ -1,0 +1,52 @@
+unit VendaEmail;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.Menus, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error,
+  FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
+  FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSSQL, FireDAC.Phys.MSSQLDef,
+  FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client;
+
+type
+  TfrmMain = class(TForm)
+    MainMenu1: TMainMenu;
+    Produtos2: TMenuItem;
+    Cliente1: TMenuItem;
+    Venda1: TMenuItem;
+    btnCliente: TImage;
+    btnVenda: TImage;
+    btnProduto: TImage;
+    btnUsuario: TImage;
+    Usurio1: TMenuItem;
+    procedure Usurio1Click(Sender: TObject);
+    procedure Produtos2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMain: TfrmMain;
+
+implementation
+
+{$R *.dfm}
+
+uses DMDados, ConfiguracaoUsuario, Produtos;
+
+procedure TfrmMain.Produtos2Click(Sender: TObject);
+begin
+frmProduto.ShowModal;
+end;
+
+procedure TfrmMain.Usurio1Click(Sender: TObject);
+begin
+  frmConfUsuario.showmodal;
+end;
+
+end.

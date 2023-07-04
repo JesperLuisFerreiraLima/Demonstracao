@@ -1,0 +1,116 @@
+unit Usuario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, JvExControls, JvXPCore, JvXPButtons,
+  Vcl.StdCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
+
+type
+  TfrmUsuario = class(TForm)
+    edtNome: TEdit;
+    edtSenha: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    lblcadastro: TLabel;
+    JvXPButton1: TJvXPButton;
+    procedure lblcadastroMouseEnter(Sender: TObject);
+    procedure lblcadastroMouseLeave(Sender: TObject);
+    procedure JvXPButton1Click(Sender: TObject);
+    procedure lblcadastroClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmUsuario: TfrmUsuario;
+
+implementation
+
+{$R *.dfm}
+
+uses VendaEmail, DMDados;
+
+procedure TfrmUsuario.JvXPButton1Click(Sender: TObject);
+begin
+  with DMDados.DataModule1.qryLogin do
+  begin
+    close;
+    ParamByName('nome').AsString := edtNome.Text;
+    Open();
+  end;
+
+  if edtNome.Text = '' then
+  begin
+    Application.MessageBox('Campo Nome Vazio!', 'Atenção', MB_OK);
+    edtNome.SetFocus;
+  end
+  else if edtSenha.Text = '' then
+  begin
+    Application.MessageBox('Campo Senha Vazio!', 'Atenção', MB_OK);
+    edtSenha.SetFocus;
+  end
+  else if DataModule1.qryLoginSE_Usuario.Value <> edtSenha.Text then
+  begin
+    Application.MessageBox('Campo Senha Incorreto!', 'Atenção', MB_OK);
+    edtSenha.SetFocus;
+  end
+
+  else
+    frmMain.showmodal;
+end;
+
+procedure TfrmUsuario.lblcadastroClick(Sender: TObject);
+begin
+  with DMDados.DataModule1.qryLogin do
+  begin
+    close;
+    ParamByName('nome').AsString := edtNome.Text;
+    Open();
+  end;
+  if edtNome.Text = '' then
+  begin
+    Application.MessageBox('Campo Nome Vazio!', 'Atenção', MB_OK);
+    edtNome.SetFocus;
+  end
+  else if edtSenha.Text = '' then
+  begin
+    Application.MessageBox('Campo Senha Vazio!', 'Atenção', MB_OK);
+    edtSenha.SetFocus;
+  end
+  else if (DataModule1.qryLoginNM_Usuario.Value = edtNome.Text) Then
+  begin
+    Application.MessageBox('Campo Nome já existe!', 'Atenção', MB_OK);
+    edtSenha.SetFocus;
+  end
+  else
+  begin
+    with DMDados.DataModule1.stInsereUsuario do
+    begin
+      close;
+      ParamByName('@usu').Value := edtNome.Text;
+      ParamByName('@sen').Value := edtSenha.Text;
+      ExecProc;
+      Application.MessageBox('Usuário Cadastrado com sucesso', 'Sucesso', MB_OK)
+    end;
+  end;
+end;
+
+procedure TfrmUsuario.lblcadastroMouseEnter(Sender: TObject);
+begin
+  lblcadastro.Font.Color := clBlue;
+end;
+
+procedure TfrmUsuario.lblcadastroMouseLeave(Sender: TObject);
+begin
+  lblcadastro.Font.Color := clBlack;
+end;
+
+end.

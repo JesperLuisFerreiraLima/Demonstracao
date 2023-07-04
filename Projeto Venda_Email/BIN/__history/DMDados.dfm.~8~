@@ -1,0 +1,167 @@
+object Dm: TDm
+  OldCreateOrder = False
+  Height = 349
+  Width = 457
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=loja'
+      'Password=845347'
+      'User_Name=sa'
+      'Server=JESPER\SQLEXPRESS'
+      'DriverID=MSSQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 200
+    Top = 16
+  end
+  object stInsereUsuario: TFDStoredProc
+    Connection = FDConnection1
+    StoredProcName = 'loja.dbo.st_insereUsuario'
+    Left = 32
+    Top = 72
+    ParamData = <
+      item
+        Position = 1
+        Name = '@RETURN_VALUE'
+        DataType = ftInteger
+        ParamType = ptResult
+      end
+      item
+        Position = 2
+        Name = '@usu'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 80
+      end
+      item
+        Position = 3
+        Name = '@sen'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 10
+      end>
+  end
+  object qryLogin: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from usu'#225'rio'
+      'where NM_Usuario = :nome')
+    Left = 136
+    Top = 96
+    ParamData = <
+      item
+        Name = 'NOME'
+        ParamType = ptInput
+        Value = Null
+      end>
+    object qryLoginID_Usuario: TFDAutoIncField
+      Alignment = taCenter
+      DisplayLabel = 'Cod'
+      FieldName = 'ID_Usuario'
+      Origin = 'ID_Usuario'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object qryLoginNM_Usuario: TStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NM_Usuario'
+      Origin = 'NM_Usuario'
+      Size = 80
+    end
+    object qryLoginSE_Usuario: TStringField
+      DisplayLabel = 'Senha'
+      FieldName = 'SE_Usuario'
+      Origin = 'SE_Usuario'
+      Size = 10
+    end
+  end
+  object dsLogin: TDataSource
+    DataSet = qryLogin
+    Left = 136
+    Top = 152
+  end
+  object stAtualizaUsu: TFDStoredProc
+    Connection = FDConnection1
+    StoredProcName = 'loja.dbo.St_AtualizaUsu'
+    Left = 32
+    Top = 128
+    ParamData = <
+      item
+        Position = 1
+        Name = '@RETURN_VALUE'
+        DataType = ftInteger
+        ParamType = ptResult
+      end
+      item
+        Position = 2
+        Name = '@id'
+        DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Position = 3
+        Name = '@nome'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 50
+      end
+      item
+        Position = 4
+        Name = '@senha'
+        DataType = ftString
+        ParamType = ptInput
+        Size = 10
+      end>
+  end
+  object stExcluiUsu: TFDStoredProc
+    Connection = FDConnection1
+    StoredProcName = 'loja.dbo.St_ExluiUsu'
+    Left = 32
+    Top = 184
+    ParamData = <
+      item
+        Position = 1
+        Name = '@RETURN_VALUE'
+        DataType = ftInteger
+        ParamType = ptResult
+      end
+      item
+        Position = 2
+        Name = '@id'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+  end
+  object qryUsuario: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from usu'#225'rio')
+    Left = 200
+    Top = 96
+    object qryUsuarioID_Usuario: TFDAutoIncField
+      Alignment = taCenter
+      DisplayLabel = 'Cod'
+      FieldName = 'ID_Usuario'
+      Origin = 'ID_Usuario'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object qryUsuarioNM_Usuario: TStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'NM_Usuario'
+      Origin = 'NM_Usuario'
+      Size = 80
+    end
+    object qryUsuarioSE_Usuario: TStringField
+      DisplayLabel = 'Senha'
+      FieldName = 'SE_Usuario'
+      Origin = 'SE_Usuario'
+      Size = 10
+    end
+  end
+  object dsUsuario: TDataSource
+    DataSet = qryUsuario
+    Left = 200
+    Top = 152
+  end
+end

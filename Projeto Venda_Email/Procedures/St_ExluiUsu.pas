@@ -1,0 +1,8 @@
+CREATE PROCEDURE dbo.St_ExluiUsu @id INTEGER
+AS
+BEGIN
+
+  DELETE FROM usuário
+  WHERE ID_Usuario = @ID
+
+END

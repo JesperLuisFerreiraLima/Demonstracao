@@ -75,6 +75,8 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -91,7 +93,32 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="VendaEmail.pas">
-            <Form>Form1</Form>
+            <Form>frmMain</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Usuario.pas">
+            <Form>frmUsuario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="DMDados.pas">
+            <Form>Dm</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="ConfiguracaoUsuario.pas">
+            <Form>frmConfUsuario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Produtos.pas">
+            <Form>frmProduto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Cliente.pas">
+            <Form>frmCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Venda.pas">
+            <Form>frmVenda</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
@@ -114,6 +141,10 @@
                 <Source>
                     <Source Name="MainSource">Venda_email.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k260.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp260.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
                 <DeployFile LocalName="Win32\Debug\Venda_email.exe" Configuration="Debug" Class="ProjectOutput">

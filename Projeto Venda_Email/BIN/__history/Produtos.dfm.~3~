@@ -1,0 +1,119 @@
+object frmProduto: TfrmProduto
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = 'Controle de Produtos'
+  ClientHeight = 326
+  ClientWidth = 473
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 40
+    Top = 48
+    Width = 35
+    Height = 16
+    Caption = 'Nome'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 160
+    Top = 88
+    Width = 34
+    Height = 16
+    Caption = 'Valor'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 40
+    Top = 88
+    Width = 25
+    Height = 16
+    Caption = 'QTD'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object edtNome: TEdit
+    Left = 96
+    Top = 47
+    Width = 185
+    Height = 21
+    TabOrder = 0
+  end
+  object edtValor: TCurrencyEdit
+    Left = 200
+    Top = 87
+    Width = 81
+    Height = 21
+    TabOrder = 1
+  end
+  object edtQtd: TSpinEdit
+    Left = 96
+    Top = 87
+    Width = 49
+    Height = 22
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 2
+    Value = 0
+  end
+  object btnInserir: TJvXPButton
+    Left = 40
+    Top = 272
+    Width = 117
+    Height = 34
+    Caption = 'Inserir'
+    TabOrder = 3
+    OnClick = btnInserirClick
+  end
+  object btnAtualizar: TJvXPButton
+    Left = 184
+    Top = 272
+    Width = 117
+    Height = 34
+    Caption = 'Atualizar'
+    TabOrder = 4
+  end
+  object btnExluir: TJvXPButton
+    Left = 324
+    Top = 272
+    Width = 117
+    Height = 34
+    Caption = 'Excluir'
+    TabOrder = 5
+  end
+  object dbProduto: TDBGrid
+    Left = 40
+    Top = 128
+    Width = 401
+    Height = 120
+    DataSource = Dm.dsProduto
+    TabOrder = 6
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+end

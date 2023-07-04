@@ -1,0 +1,364 @@
+unit Venda;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Samples.Spin, Vcl.Mask,
+  RxToolEdit, RxCurrEdit, Vcl.StdCtrls, Vcl.ExtCtrls, JvExControls, JvXPCore,
+  JvXPButtons, Vcl.Grids, Vcl.DBGrids, JvExStdCtrls, JvMemo, Vcl.ValEdit,
+  Vcl.CheckLst, Vcl.ComCtrls, IdBaseComponent, IdComponent, IdCustomTCPServer,
+  IdTCPServer, IdSMTP, IdSSLOpenSSL, IdMessage, IdText, IdAttachmentFile,
+  IdExplicitTLSClientServerBase, Vcl.Imaging.pngimage; // a partir do IdSMTP são bibliotecas de email
+
+type
+  TfrmVenda = class(TForm)
+    dbCli: TDBGrid;
+    Label1: TLabel;
+    Label2: TLabel;
+    dbProd: TDBGrid;
+    btnInserir: TJvXPButton;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    edtNomeCli: TEdit;
+    edtEmailCli: TEdit;
+    edtNomeProd: TEdit;
+    edtValor: TCurrencyEdit;
+    edtQtd: TSpinEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    edtFiltroCli: TEdit;
+    edtFiltroProd: TEdit;
+    Label10: TLabel;
+    lblTotal: TLabel;
+    JvXPButton1: TJvXPButton;
+    lstLista: TListView;
+    JvXPButton2: TJvXPButton;
+    lblTotView: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    lblCodVenda: TLabel;
+    edtEmail: TEdit;
+    Label13: TLabel;
+    Label14: TLabel;
+    edtSenha: TEdit;
+    procedure FormActivate(Sender: TObject);
+    procedure edtFiltroCliChange(Sender: TObject);
+    procedure edtFiltroProdChange(Sender: TObject);
+    procedure dbCliCellClick(Column: TColumn);
+    procedure dbProdCellClick(Column: TColumn);
+    procedure edtQtdExit(Sender: TObject);
+    procedure btnInserirClick(Sender: TObject);
+    procedure lstListaCustomDrawItem(Sender: TCustomListView; Item: TListItem;
+      State: TCustomDrawState; var DefaultDraw: Boolean);
+    procedure JvXPButton2Click(Sender: TObject);
+    procedure JvXPButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    tot: Real;
+
+  end;
+
+var
+  frmVenda: TfrmVenda;
+
+implementation
+
+{$R *.dfm}
+
+uses DMDados;
+
+procedure TfrmVenda.btnInserirClick(Sender: TObject);
+var
+  lista: TListItem;
+  i: integer;
+begin
+
+  lista := lstLista.Items.Add;
+  lista.Caption := (edtNomeProd.Text);
+  lista.SubItems.Add(edtQtd.Text);
+  lista.SubItems.Add(lblTotal.Caption);
+
+  { tot := tot + StrToFloat(copy(lblTotal.Caption, 4, length(lblTotal.Caption)));
+  }
+
+  tot := 0;
+  for i := 0 to lstLista.Items.Count - 1 do
+  begin
+    tot := tot + StrToFloat(copy(lstLista.Items[i].SubItems[1], 4,
+      length(lstLista.Items[i].SubItems[1])));
+    lblTotView.Caption := 'R$' + FloatTostr(tot);
+  end;
+
+end;
+
+procedure TfrmVenda.dbCliCellClick(Column: TColumn);
+begin
+  edtNomeCli.Text := dbCli.Fields[1].Text;
+  edtEmailCli.Text := dbCli.Fields[2].Text;
+end;
+
+procedure TfrmVenda.dbProdCellClick(Column: TColumn);
+var
+  n1: Real;
+  n2: integer;
+  re: String;
+begin
+  edtNomeProd.Text := dbProd.Fields[1].Text;
+  edtValor.Text := dbProd.Fields[2].Text;
+
+  n1 := StrToFloat(edtValor.Text);
+  n2 := StrToInt(edtQtd.Text);
+  re := FloatTostr(n1 * n2);
+
+  lblTotal.Caption := FloattoStrF(n1 * n2, ffCurrency, 10, 2);
+
+end;
+
+procedure TfrmVenda.edtFiltroCliChange(Sender: TObject);
+begin
+  with DMDados.Dm.qryCliente do
+  begin
+    Filtered := false;
+    Filter := 'NM_Cliente like' + QuotedStr('%' + edtFiltroCli.Text + '%');
+    Filtered := true;
+  end;
+end;
+
+procedure TfrmVenda.edtFiltroProdChange(Sender: TObject);
+begin
+  with DMDados.Dm.qryProduto do
+  begin
+    Filtered := false;
+    Filter := 'NM_Produto like' + QuotedStr('%' + edtFiltroProd.Text + '%');
+    Filtered := true;
+  end;
+end;
+
+procedure TfrmVenda.edtQtdExit(Sender: TObject);
+var
+  n1: Real;
+  n2: integer;
+  re: String;
+begin
+  if edtNomeProd.Text = '' then
+  begin
+    Application.MessageBox('Escolha o Produto!', 'Atenção', MB_OK);
+    dbProd.SetFocus;
+  end
+  else
+  begin
+    n1 := StrToFloat(edtValor.Text);
+    n2 := StrToInt(edtQtd.Text);
+    re := FloatTostr(n1 * n2);
+
+    lblTotal.Caption := FloattoStrF(n1 * n2, ffCurrency, 10, 2);
+  end;
+end;
+
+procedure TfrmVenda.FormActivate(Sender: TObject);
+var
+  Venda: integer;
+begin
+  with Dm.qryProduto do
+  begin
+    close;
+    open;
+  end;
+
+  with Dm.qryCliente do
+  begin
+    close;
+    open();
+  end;
+
+  with Dm.qryCodVenda do
+  begin
+    close;
+    open;
+    Venda := Dm.qryCodVendaUnnamed1.Value + 1;
+    lblCodVenda.Caption := InttoStr(Venda);
+
+    if Dm.qryCodVendaUnnamed1.Value = 0 then
+    begin
+      lblCodVenda.Caption := '1';
+    end;
+
+  end;
+end;
+
+procedure TfrmVenda.JvXPButton1Click(Sender: TObject);
+var
+  i, Retorno: integer;
+  errmsg: String;
+  IdSSLIOHandlerSocket: TIdSSLIOHandlerSocketOpenSSL;
+  IdSMTP: TIdSMTP;
+  IdMessage: TIdMessage;
+  IdText: TIdText;
+begin
+
+  // instanciando os objetos
+  IdSSLIOHandlerSocket := TIdSSLIOHandlerSocketOpenSSL.Create(Self);
+  IdSMTP := TIdSMTP.Create(Self);
+  IdMessage := TIdMessage.Create(Self);
+
+  if edtNomeCli.Text = '' then
+  begin
+    Application.MessageBox('Escolha o cliente para fazer a venda!', 'Atenção',
+      MB_ICONEXCLAMATION)
+  end
+  else if edtEmailCli.Text = '' then
+  begin
+    Application.MessageBox('Cliente sem email!', 'Atenção', MB_ICONEXCLAMATION)
+  end
+  else if edtEmail.Text = '' then
+  begin
+    Application.MessageBox('Por favor inserir email de remetente!', 'Atenção',
+      MB_ICONEXCLAMATION);
+    edtEmail.Focused;
+  end
+  else if edtSenha.Text = '' then
+  begin
+    Application.MessageBox('Por favor inserir senha !', 'Atenção',
+      MB_ICONEXCLAMATION);
+    edtSenha.Focused;
+  end
+  else
+  begin
+    if Application.MessageBox('Deseja Finalizar a venda ?', 'Atenção',
+      mb_yesno + mb_iconquestion) = id_yes then
+    begin
+
+      for i := 0 to lstLista.Items.Count - 1 do
+      begin
+        With Dm.stinsereVenda do
+        begin
+          close;
+          ParamByName('@nm_Prod').Value := lstLista.Items[i].Caption;
+          ParamByName('@nm_Cli').Value := edtNomeCli.Text;
+          ParamByName('@qtdVenda').Value := lstLista.Items[i].SubItems[0];
+          ParamByName('@codVEnda').Value := lblCodVenda.Caption;
+          ExecProc;
+
+          Retorno := ParamByName('@return').Value;
+          errmsg := ParamByName('@erMsg').Value;
+
+          if Retorno = 2 then
+          begin
+            Application.MessageBox(Pchar(errmsg), 'Atenção',
+              MB_ICONEXCLAMATION);
+          end;
+        end;
+      end;
+
+      lblCodVenda.Caption := InttoStr(Dm.qryCodVendaUnnamed1.Value + 1);
+
+      with Dm.qryCodVenda do
+      begin
+        close;
+        open;
+      end;
+
+    end;
+
+    try
+      // Configuração do protocolo SSL (TIdSSLIOHandlerSocketOpenSSL)
+      IdSSLIOHandlerSocket.SSLOptions.Method := sslvSSLv23;
+      IdSSLIOHandlerSocket.SSLOptions.Mode := sslmClient;
+
+      // Configuração do servidor SMTP (TIdSMTP)
+      IdSMTP.IOHandler := IdSSLIOHandlerSocket;
+      IdSMTP.UseTLS := utUseImplicitTLS;
+      IdSMTP.AuthType := satDefault;
+      IdSMTP.Port := 465;
+      IdSMTP.Host := 'smtp.gmail.com';
+      IdSMTP.Username := edtEmail.Text;
+      IdSMTP.Password := edtSenha.Text;
+
+      // Configuração da mensagem (TIdMessage)
+      IdMessage.From.Address := edtEmail.Text;
+      IdMessage.From.Name := 'Projeto Venda-Estoque';
+      IdMessage.ReplyTo.EMailAddresses := IdMessage.From.Address;
+      IdMessage.Recipients.Add.Text := edtEmailCli.Text;
+      IdMessage.Subject := 'Nota de Compra: ' + lblCodVenda.Caption;
+      IdMessage.Encoding := meMIME;
+
+      // Configuração do corpo do email (TIdText)
+      IdText := TIdText.Create(IdMessage.MessageParts);
+      IdText.Body.Add('Olá ' + edtNomeCli.Text + ' tudo bem! ' + #13 +
+        ' espero que sim, hoje você fez o teste do projeto de venda e estoque voce fez uma compra o com total de '
+        + lblTotView.Caption);
+      IdText.ContentType := 'text/plain; charset=iso-8859-1';
+
+      // Conexão e autenticação
+      try
+        IdSMTP.Connect;
+        IdSMTP.Authenticate;
+      except
+        on E: Exception do
+        begin
+          MessageDlg('Erro na conexão ou autenticação: ' + E.Message, mtWarning,
+            [mbOK], 0);
+          Exit;
+        end;
+      end;
+
+      // Envio da mensagem
+      try
+        IdSMTP.Send(IdMessage);
+        MessageDlg('Mensagem enviada com sucesso!', mtInformation, [mbOK], 0);
+      except
+        On E: Exception do
+        begin
+          MessageDlg('Erro ao enviar a mensagem: ' + E.Message, mtWarning,
+            [mbOK], 0);
+        end;
+      end;
+    finally
+      // desconecta do servidor
+      IdSMTP.Disconnect;
+      // liberação da DLL
+      UnLoadOpenSSLLibrary;
+      // liberação dos objetos da memória
+      FreeAndNil(IdMessage);
+      FreeAndNil(IdSSLIOHandlerSocket);
+      FreeAndNil(IdSMTP);
+    end;
+  end;
+end;
+
+procedure TfrmVenda.JvXPButton2Click(Sender: TObject);
+var
+  i: integer;
+begin
+  if lstLista.ItemFocused <> nil then
+    lstLista.DeleteSelected;
+
+  tot := 0;
+  for i := 0 to lstLista.Items.Count - 1 do
+  begin
+    tot := tot + StrToFloat(copy(lstLista.Items[i].SubItems[1], 4,
+      length(lstLista.Items[i].SubItems[1])));
+    lblTotView.Caption := 'R$' + FloatTostr(tot);
+  end;
+
+end;
+
+procedure TfrmVenda.lstListaCustomDrawItem(Sender: TCustomListView;
+  Item: TListItem; State: TCustomDrawState; var DefaultDraw: Boolean);
+begin
+  if Odd(Item.index) then
+    lstLista.Canvas.Brush.Color := clGrayText
+    // Todas as linhas Ímpares
+  else
+    lstLista.Canvas.Brush.Color := clWhite;
+end;
+
+end.

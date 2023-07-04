@@ -1,9 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2023/06/25 10:38:59.866,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/06/25 12:23:31.943,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Projeto Venda_Email\VendaEmail.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2023/06/25 12:23:31.943,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Projeto Venda_Email\VendaEmail.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/06/25 12:23:40.616,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Projeto Venda_Email\Venda_email.dproj=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+	<Transactions>
+    <Transaction>2023/06/25 10:38:59.000.866,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/06/25 12:23:31.000.943,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Projeto Venda_Email\VendaEmail.pas</Transaction>
+    <Transaction>2023/06/25 12:23:31.000.943,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Projeto Venda_Email\VendaEmail.dfm</Transaction>
+    <Transaction>2023/06/25 12:23:40.000.616,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Projeto Venda_Email\Venda_email.dproj</Transaction>
+    <Transaction>2023/06/25 19:22:32.000.494,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit2.pas</Transaction>
+    <Transaction>2023/06/25 20:16:01.000.552,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit2.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Usuario.pas</Transaction>
+    <Transaction>2023/06/25 20:16:01.000.552,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit2.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Usuario.dfm</Transaction>
+    <Transaction>2023/06/25 22:01:44.000.857,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.pas</Transaction>
+    <Transaction>2023/06/25 22:02:04.000.318,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\DMDados.pas</Transaction>
+    <Transaction>2023/06/25 22:02:04.000.318,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\DMDados.dfm</Transaction>
+    <Transaction>2023/06/26 09:23:45.000.551,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.pas</Transaction>
+    <Transaction>2023/06/26 09:29:00.000.922,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\ConfiguracaoUsuario.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.pas</Transaction>
+    <Transaction>2023/06/26 09:29:00.000.922,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\ConfiguracaoUsuario.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.dfm</Transaction>
+    <Transaction>2023/06/26 13:14:31.000.673,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.pas</Transaction>
+    <Transaction>2023/06/26 13:21:06.000.872,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Produtos.pas</Transaction>
+    <Transaction>2023/06/26 13:21:06.000.872,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Produtos.dfm</Transaction>
+    <Transaction>2023/06/27 09:30:17.000.964,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.pas</Transaction>
+    <Transaction>2023/06/27 11:26:47.000.651,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Cliente.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.pas</Transaction>
+    <Transaction>2023/06/27 11:26:47.000.651,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Cliente.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.dfm</Transaction>
+    <Transaction>2023/06/27 14:52:41.000.006,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.pas</Transaction>
+    <Transaction>2023/06/27 16:49:26.000.181,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Venda.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.pas</Transaction>
+    <Transaction>2023/06/27 16:49:26.000.182,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Venda.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Venda_Email\BIN\Unit1.dfm</Transaction>
   </Transactions>
 </BorlandProject>

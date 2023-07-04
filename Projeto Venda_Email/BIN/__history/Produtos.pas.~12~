@@ -1,0 +1,100 @@
+unit Produtos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  JvExControls, JvXPCore, JvXPButtons, Vcl.Samples.Spin, Vcl.Mask, RxToolEdit,
+  RxCurrEdit, Vcl.StdCtrls;
+
+type
+  TfrmProduto = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    edtNome: TEdit;
+    edtValor: TCurrencyEdit;
+    edtQtd: TSpinEdit;
+    btnInserir: TJvXPButton;
+    btnAtualizar: TJvXPButton;
+    btnExluir: TJvXPButton;
+    dbProduto: TDBGrid;
+    procedure btnInserirClick(Sender: TObject);
+    procedure btnAtualizarClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure dbProdutoKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmProduto: TfrmProduto;
+
+implementation
+
+{$R *.dfm}
+
+uses DMDados;
+
+procedure TfrmProduto.btnAtualizarClick(Sender: TObject);
+begin
+  if Application.MessageBox('Deseja Atualizar?', 'Atenção',
+    mb_yesno + mb_iconquestion) = id_yes then
+  begin
+    with DMDados.Dm.stAtualizaProduto do
+    begin
+      close;
+      ParamByName('@nome').Value := dbProduto.Fields[1].Value;
+      ParamByName('@valor').Value := dbProduto.Fields[2].Value;
+      ParamByName('@qtd').Value := dbProduto.Fields[3].Value;
+      ParamByName('@Id').Value := dbProduto.Fields[0].Value;
+      ExecProc;
+
+      Application.MessageBox('Produto atualizado?', 'Atenção', mb_iconquestion);
+
+    end;
+  end
+  else
+    Application.MessageBox('Não atualizado?', 'Atenção', mb_iconquestion);
+
+end;
+
+procedure TfrmProduto.btnInserirClick(Sender: TObject);
+begin
+
+  with DMDados.Dm.stInsereProduto do
+  begin
+    close;
+    ParamByName('@nome').Value := edtNome.Text;
+    ParamByName('@valor').Value := edtValor.Text;
+    ParamByName('@qtd').Value := edtQtd.Text;
+    ExecProc;
+  end;
+
+  with Dm.qryProduto do
+  begin
+    close;
+    open;
+  end;
+
+end;
+
+procedure TfrmProduto.dbProdutoKeyPress(Sender: TObject; var Key: Char);
+begin
+  Key := UpCase(Key);
+end;
+
+procedure TfrmProduto.FormActivate(Sender: TObject);
+begin
+  with DMDados.Dm.qryProduto do
+  begin
+    close;
+    open;
+  end;
+end;
+
+end.
