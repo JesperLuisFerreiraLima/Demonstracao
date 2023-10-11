@@ -23,6 +23,9 @@ type
     btnUsuario: TImage;
     Usurio1: TMenuItem;
     Image1: TImage;
+    btnRelat: TImage;
+    Relatrio1: TMenuItem;
+    Image2: TImage;
     procedure Usurio1Click(Sender: TObject);
     procedure Produtos2Click(Sender: TObject);
     procedure Cliente1Click(Sender: TObject);
@@ -31,6 +34,9 @@ type
     procedure btnUsuarioClick(Sender: TObject);
     procedure Venda1Click(Sender: TObject);
     procedure btnVendaClick(Sender: TObject);
+    procedure btnRelatClick(Sender: TObject);
+    procedure Relatrio1Click(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,7 +50,8 @@ implementation
 
 {$R *.dfm}
 
-uses DMDados, ConfiguracaoUsuario, Produtos, Cliente, Venda, Usuario;
+uses DMDados, ConfiguracaoUsuario, Produtos, Cliente, Venda, Usuario, Relatorio,
+  RelatorioVenda;
 
 procedure TfrmMain.btnClienteClick(Sender: TObject);
 begin
@@ -54,6 +61,11 @@ end;
 procedure TfrmMain.btnProdutoClick(Sender: TObject);
 begin
   frmProduto.showmodal;
+end;
+
+procedure TfrmMain.btnRelatClick(Sender: TObject);
+begin
+  frmRelat.relVendas.Preview();
 end;
 
 procedure TfrmMain.btnUsuarioClick(Sender: TObject);
@@ -71,9 +83,19 @@ begin
   frmCliente.showmodal;
 end;
 
+procedure TfrmMain.Image2Click(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
 procedure TfrmMain.Produtos2Click(Sender: TObject);
 begin
   frmProduto.showmodal;
+end;
+
+procedure TfrmMain.Relatrio1Click(Sender: TObject);
+begin
+  frmRelVendas.relVendas.Preview();
 end;
 
 procedure TfrmMain.Usurio1Click(Sender: TObject);

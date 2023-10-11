@@ -58,7 +58,7 @@ begin
     Application.MessageBox('Campo Senha Vazio!', 'Atenção', MB_OK);
     edtSenha.SetFocus;
   end
-  else if DM.qryLoginSE_Usuario.Value <> edtSenha.Text then
+  else if DM.qryLoginSENHA_USU.Value <> edtSenha.Text then
   begin
     Application.MessageBox('Campo Senha Incorreto!', 'Atenção', MB_OK);
     edtSenha.SetFocus;
@@ -88,7 +88,7 @@ begin
     Application.MessageBox('Campo Senha Vazio!', 'Atenção', MB_OK);
     edtSenha.SetFocus;
   end
-  else if (DM.qryLoginNM_Usuario.Value = edtNome.Text) Then
+  else if (DM.qryLoginNOME_USU.Value = edtNome.Text) Then
   begin
     Application.MessageBox('Usuário já existe!', 'Atenção', MB_OK);
     edtSenha.SetFocus;

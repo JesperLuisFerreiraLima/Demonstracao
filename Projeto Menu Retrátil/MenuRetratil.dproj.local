@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/07/08 18:04:37.000.996,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/08 18:06:03.000.048,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Main.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/07/08 18:06:03.000.048,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Main.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/08 18:06:24.000.447,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Nota_Fisacal.dproj=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/07/08 18:07:23.000.399,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Unit1.pas</Transaction>
+    <Transaction>2023/07/08 18:08:10.000.952,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Dados.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Unit1.pas</Transaction>
+    <Transaction>2023/07/08 18:08:10.000.952,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Dados.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Unit1.dfm</Transaction>
+    <Transaction>2023/07/11 20:10:25.000.028,=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Unit2.pas</Transaction>
+    <Transaction>2023/07/11 20:17:46.000.716,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Unit2.dfm=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Certificado.dfm</Transaction>
+    <Transaction>2023/07/11 20:17:46.000.716,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Unit2.pas=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Certificado.pas</Transaction>
+    <Transaction>2023/07/11 20:17:56.000.542,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Nota_Fisacal.dproj=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Nota Fiscal\Nota_Fisacal.dproj</Transaction>
+    <Transaction>2023/10/11 11:40:35.904,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Menu Retrátil\Certificado.pas=</Transaction>
+    <Transaction>2023/10/11 11:40:41.696,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Menu Retrátil\Dados.pas=</Transaction>
+    <Transaction>2023/10/11 11:44:11.908,C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Menu Retrátil\MenuRetratil.dproj=C:\Users\jespe\OneDrive\Documentos\Embarcadero\Studio\Projects\Demonstração\Projeto Menu Retrátil\Nota_Fisacal.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

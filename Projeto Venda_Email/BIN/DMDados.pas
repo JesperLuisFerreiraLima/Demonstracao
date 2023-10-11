@@ -11,20 +11,14 @@ uses
   FireDAC.Comp.Client;
 
 type
-  TDm = class(TDataModule)
+  Tdm = class(TDataModule)
     FDConnection1: TFDConnection;
     stInsereUsuario: TFDStoredProc;
     qryLogin: TFDQuery;
-    qryLoginID_Usuario: TFDAutoIncField;
-    qryLoginNM_Usuario: TStringField;
-    qryLoginSE_Usuario: TStringField;
     dsLogin: TDataSource;
     stAtualizaUsu: TFDStoredProc;
     stExcluiUsu: TFDStoredProc;
     qryUsuario: TFDQuery;
-    qryUsuarioID_Usuario: TFDAutoIncField;
-    qryUsuarioNM_Usuario: TStringField;
-    qryUsuarioSE_Usuario: TStringField;
     dsUsuario: TDataSource;
     stexcluiProduto: TFDStoredProc;
     stAtualizaProduto: TFDStoredProc;
@@ -47,6 +41,25 @@ type
     dsCodVenda: TDataSource;
     qryCodVendaUnnamed1: TIntegerField;
     stInsereVenda: TFDStoredProc;
+    qryLoginID_USU: TFDAutoIncField;
+    qryLoginNOME_USU: TStringField;
+    qryLoginSENHA_USU: TStringField;
+    qryUsuarioID_USU: TFDAutoIncField;
+    qryUsuarioNOME_USU: TStringField;
+    qryUsuarioSENHA_USU: TStringField;
+    qryVenda: TFDQuery;
+    dsVenda: TDataSource;
+    qryVendaCod_Venda: TIntegerField;
+    qryVendaID_Venda: TFDAutoIncField;
+    qryVendaNM_Produto: TStringField;
+    qryVendaNM_Cliente: TStringField;
+    qryVendaQTD_Venda: TIntegerField;
+    qryVendaVl_venda: TCurrencyField;
+    qryVendaDT_Venda: TSQLTimeStampField;
+    qryTotVenda: TFDQuery;
+    dsTotVenda: TDataSource;
+    qryTotVendatotal: TCurrencyField;
+    qryTotVendaCod_Venda: TIntegerField;
   private
     { Private declarations }
   public
@@ -54,7 +67,7 @@ type
   end;
 
 var
-  Dm: TDm;
+  dm: Tdm;
 
 implementation
 

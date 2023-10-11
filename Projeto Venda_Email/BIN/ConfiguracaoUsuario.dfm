@@ -4,7 +4,7 @@ object frmConfUsuario: TfrmConfUsuario
   BorderIcons = [biSystemMenu]
   Caption = 'Configura'#231#227'o de Usu'#225'rios'
   ClientHeight = 241
-  ClientWidth = 329
+  ClientWidth = 321
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,7 +19,7 @@ object frmConfUsuario: TfrmConfUsuario
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 329
+    Width = 321
     Height = 241
     Align = alClient
     Picture.Data = {
@@ -22487,50 +22487,45 @@ object frmConfUsuario: TfrmConfUsuario
   object dbUsuario: TDBGrid
     Left = 8
     Top = 24
-    Width = 318
+    Width = 297
     Height = 137
     DataSource = Dm.dsUsuario
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -11
+    TitleFont.Height = -13
     TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
+    TitleFont.Style = [fsBold]
     Columns = <
       item
+        Alignment = taCenter
         Expanded = False
-        FieldName = 'ID_Usuario'
-        Title.Alignment = taCenter
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -13
-        Title.Font.Name = 'Tahoma'
-        Title.Font.Style = [fsBold]
-        Width = 29
+        FieldName = 'ID_USU'
+        Title.Caption = 'COD'
+        Width = 35
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'NM_Usuario'
+        FieldName = 'NOME_USU'
         Title.Alignment = taCenter
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -13
-        Title.Font.Name = 'Tahoma'
-        Title.Font.Style = [fsBold]
-        Width = 168
+        Title.Caption = 'USU'#193'RIO'
+        Width = 151
         Visible = True
       end
       item
+        Alignment = taCenter
         Expanded = False
-        FieldName = 'SE_Usuario'
+        FieldName = 'SENHA_USU'
         Title.Alignment = taCenter
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -13
-        Title.Font.Name = 'Tahoma'
-        Title.Font.Style = [fsBold]
-        Width = 82
+        Title.Caption = 'SENHA'
+        Width = 71
         Visible = True
       end>
   end

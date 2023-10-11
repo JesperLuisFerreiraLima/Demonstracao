@@ -222,22 +222,22 @@ begin
     Application.MessageBox('Escolha o cliente para fazer a venda!', 'Atenção',
       MB_ICONEXCLAMATION)
   end
-  else if edtEmailCli.Text = '' then
-  begin
+  { else if edtEmailCli.Text = '' then
+    begin
     Application.MessageBox('Cliente sem email!', 'Atenção', MB_ICONEXCLAMATION)
-  end
-  else if edtEmail.Text = '' then
-  begin
+    end
+    else if edtEmail.Text = '' then
+    begin
     Application.MessageBox('Por favor inserir email de remetente!', 'Atenção',
-      MB_ICONEXCLAMATION);
+    MB_ICONEXCLAMATION);
     edtEmail.Focused;
-  end
-  else if edtSenha.Text = '' then
-  begin
+    end
+    else if edtSenha.Text = '' then
+    begin
     Application.MessageBox('Por favor inserir senha !', 'Atenção',
-      MB_ICONEXCLAMATION);
+    MB_ICONEXCLAMATION);
     edtSenha.Focused;
-  end
+    end }
   else
   begin
     if Application.MessageBox('Deseja Finalizar a venda ?', 'Atenção',
@@ -276,7 +276,7 @@ begin
 
     end;
 
-    try
+    { try
       // Configuração do protocolo SSL (TIdSSLIOHandlerSocketOpenSSL)
       IdSSLIOHandlerSocket.SSLOptions.Method := sslvSSLv23;
       IdSSLIOHandlerSocket.SSLOptions.Mode := sslmClient;
@@ -301,35 +301,35 @@ begin
       // Configuração do corpo do email (TIdText)
       IdText := TIdText.Create(IdMessage.MessageParts);
       IdText.Body.Add('Olá ' + edtNomeCli.Text + ' tudo bem! ' + #13 +
-        ' espero que sim, hoje você fez o teste do projeto de venda e estoque voce fez uma compra o com total de '
-        + lblTotView.Caption);
+      ' espero que sim, hoje você fez o teste do projeto de venda e estoque voce fez uma compra o com total de '
+      + lblTotView.Caption);
       IdText.ContentType := 'text/plain; charset=iso-8859-1';
 
       // Conexão e autenticação
       try
-        IdSMTP.Connect;
-        IdSMTP.Authenticate;
+      IdSMTP.Connect;
+      IdSMTP.Authenticate;
       except
-        on E: Exception do
-        begin
-          MessageDlg('Erro na conexão ou autenticação: ' + E.Message, mtWarning,
-            [mbOK], 0);
-          Exit;
-        end;
+      on E: Exception do
+      begin
+      MessageDlg('Erro na conexão ou autenticação: ' + E.Message, mtWarning,
+      [mbOK], 0);
+      Exit;
+      end;
       end;
 
       // Envio da mensagem
       try
-        IdSMTP.Send(IdMessage);
-        MessageDlg('Mensagem enviada com sucesso!', mtInformation, [mbOK], 0);
+      IdSMTP.Send(IdMessage);
+      MessageDlg('Mensagem enviada com sucesso!', mtInformation, [mbOK], 0);
       except
-        On E: Exception do
-        begin
-          MessageDlg('Erro ao enviar a mensagem: ' + E.Message, mtWarning,
-            [mbOK], 0);
-        end;
+      On E: Exception do
+      begin
+      MessageDlg('Erro ao enviar a mensagem: ' + E.Message, mtWarning,
+      [mbOK], 0);
       end;
-    finally
+      end;
+      finally
       // desconecta do servidor
       IdSMTP.Disconnect;
       // liberação da DLL
@@ -338,7 +338,7 @@ begin
       FreeAndNil(IdMessage);
       FreeAndNil(IdSSLIOHandlerSocket);
       FreeAndNil(IdSMTP);
-    end;
+      end; }
   end;
 end;
 

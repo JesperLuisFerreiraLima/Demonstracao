@@ -101,7 +101,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="DMDados.pas">
-            <Form>Dm</Form>
+            <Form>dm</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
@@ -119,6 +119,14 @@
         </DCCReference>
         <DCCReference Include="Venda.pas">
             <Form>frmVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Relatorio.pas">
+            <Form>frmRelat</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="RelatorioVenda.pas">
+            <Form>frmRelVendas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

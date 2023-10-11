@@ -1,0 +1,40 @@
+unit RelatorioVenda;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RLReport, Vcl.Imaging.pngimage;
+
+type
+  TfrmRelVendas = class(TForm)
+    relVendas: TRLReport;
+    RLBand1: TRLBand;
+    RLLabel1: TRLLabel;
+    RLImage1: TRLImage;
+    RLSystemInfo1: TRLSystemInfo;
+    RLDraw1: TRLDraw;
+    RLGroup1: TRLGroup;
+    RLBand2: TRLBand;
+    RLLabel2: TRLLabel;
+    RLLabel3: TRLLabel;
+    RLLabel4: TRLLabel;
+    RLDBText1: TRLDBText;
+    RLDBText2: TRLDBText;
+    RLDBText3: TRLDBText;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelVendas: TfrmRelVendas;
+
+implementation
+
+{$R *.dfm}
+
+uses DMDados;
+
+end.
